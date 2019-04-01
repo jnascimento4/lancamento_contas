@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="demo">
+<head>
+<meta charset="UTF-8">
+<title>Hello AngularJS</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="js/conta.js"></script>
+<script src="js/angular-locale_pt-br.js"></script> 
+</head>
+
+<body>
+	<div ng-controller="Hello">
+		<div ng-repeat="l in lancamentos">
+			<p>Data lançamento | Descrição | Número | Situação | Data de Confirmação | Dados Bancários | Valor Final</p>
+			<span>{{l.dataLancamentoContaCorrenteCliente}}</span>
+			<span> | </span>
+			<span>{{l.lancamentoContaCorrenteCliente.nomeTipoOperacao}}</span>
+			<span> | </span>
+			<span>{{l.lancamentoContaCorrenteCliente.numeroRemessaBanco}}</span>
+			<span> | </span>
+			<span>{{l.lancamentoContaCorrenteCliente.nomeSituacaoRemessa}}</span>
+			<span> | </span>
+			<span>{{l.dataEfetivaLancamento}}</span>
+			<span> | </span>
+			<span>{{l.nomeBanco}} Ag {{l.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroAgencia}} CC {{l.lancamentoContaCorrenteCliente.dadosDomicilioBancario.numeroContaCorrente}}</span>
+			<span> | </span>
+			<span>{{l.valorLancamentoRemessa | currency:'R$'}}</span>
+		</div>
+	</div>
+</body>
+</html>
